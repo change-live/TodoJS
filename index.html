@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+
+<html>
+
+  <head>
+
+    <title>事情紀錄器</title>
+    
+  </head>
+
+  <body>
+
+    <h1>事情代辦器</h1>
+
+    <from>
+
+      <input id="keyIn" type="text" name="keyin">
+      <button id="post" type="button">提交送出</button>
+
+
+    </from>
+
+    <ul id="result"></ul>
+
+    <script type="text/javascript">
+      let postBtn = document.getElementById('post')
+      let result = document.getElementById('result')
+
+      postBtn.addEventListener('click',(e)=>{
+        let keyinput =  document.getElementById('keyIn').value
+        if(!keyinput){
+          alert('請輸入資料')
+        }else{
+          let todo = document.createElement('li')
+          todo.innerHTML = keyinput + '   ' + "<button> X </button>"
+          result.appendChild(todo)
+          document.getElementById('keyIn').value = ''
+        }
+
+      })
+
+      result.addEventListener('click',(e)=>{
+        e.target.parentNode.parentNode.removeChild( e.target.parentNode)       
+      })
+
+    </script>
+
+  </body>
+
+
+</html>
